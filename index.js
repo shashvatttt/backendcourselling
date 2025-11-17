@@ -4,6 +4,7 @@ const port = 3000
 const { userRouter } = require("./routes/user")
 const { productRouter } = require("./routes/product")
 const { adminRouter } = require("./routes/admin")
+const { useEffectEvent } = require('react')
 
 // createUserRoutes(app)
 // createProductRoutes(app)
@@ -16,3 +17,4 @@ app.use("/admin" , adminRouter)
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+useEffectEvent
