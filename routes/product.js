@@ -1,19 +1,12 @@
-const { Router } = require("express")
-const productRouter = Router()
+const { Router } = require("express");
+const productRouter = Router();
 
-    productRouter.post('/sell', (req, res) => {
-        res.json({
-        message: "sell endpoint"
-         })
-    })
+productRouter.post('/sell', (req, res) => {
+    res.json({ message: "sell endpoint" });
+});
 
-    productRouter.get('/purchase', (req, res) => {
-        res.json({
-        message: "signup endpoint"
-        })
-    })
+productRouter.get('/purchase', (req, res) => {
+    res.json({ message: "purchase endpoint" });
+});
 
-
-module.exports = {
-    productRouter:productRouter
-}
+module.exports = productRouter;

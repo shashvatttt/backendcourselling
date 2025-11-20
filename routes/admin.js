@@ -1,32 +1,37 @@
-const { Router } = require("express")
-const adminRouter = Router()
+const { Router } = require("express");
+const adminRouter = Router();
+const { adminModel } = require("../db");
+const adminMiddleware = require("../middlewares/adminMiddleware"); // FIX
 
-adminRouter.use(adminMiddleware)
- 
-    userRouter.post('/signup', (req, res) => {
-        res.json({
-            message: "signup endpoint"
-        })
-    })
+// apply middleware
+adminRouter.use(adminMiddleware);
 
-    userRouter.post('/login', (req, res) => {
-        res.json({
-            message: "signin endpoint"
-        })
-    })
+// admin signup
+adminRouter.post('/signup', (req, res) => {
+    res.json({
+        message: "admin signup endpoint"
+    });
+});
 
-    userRouter.post('/join', (req, res) => {
-        res.json({
-            message: "join endpoint"
-        })
-    })
+// admin login
+adminRouter.post('/login', (req, res) => {
+    res.json({
+        message: "admin login endpoint"
+    });
+});
 
-    userRouter.put('/delete', (req, res) => {
-        res.json({
-            message: "join endpoint"
-        })
-    })
+// create / join course (example)
+adminRouter.post('/join', (req, res) => {
+    res.json({
+        message: "admin join endpoint"
+    });
+});
 
-module.exports = {
-    adminRouter:adminRouter
-}
+// delete something
+adminRouter.put('/delete', (req, res) => {
+    res.json({
+        message: "admin delete endpoint"
+    });
+});
+
+module.exports = adminRouter;

@@ -1,25 +1,16 @@
-const { Router } = require("express")
-const userRouter = Router()
+const { Router } = require("express");
+const userRouter = Router();
 
-    userRouter.post('/signup', (req, res) => {
-        res.json({
-            message: "signup endpoint"
-        })
-    })
+userRouter.post('/signup', (req, res) => {
+    res.json({ message: "signup endpoint" });
+});
 
-    userRouter.post('/login', (req, res) => {
-        res.json({
-            message: "signin endpoint"
-        })
-    })
+userRouter.post('/login', (req, res) => {
+    res.json({ message: "signin endpoint" });
+});
 
-    userRouter.post('/join', (req, res) => {
-        res.json({
-            message: "join endpoint"
-        })
-    })
+userRouter.post('/join', (req, res) => {
+    res.json({ message: "join endpoint" });
+});
 
-
-module.exports = {
-    userRouter:userRouter
-}
+module.exports = userRouter;

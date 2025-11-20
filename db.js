@@ -1,22 +1,43 @@
-const {Schema, default: mongoose} = require("mongoose")
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
-const userSchema = Schema({
-    
-})
+mongoose.connect("mongodb+srv://abhi:kings11punjab@cluster0.uhrq4q3.mongodb.net/coursera-app");
 
-const adminSchema = Schema({
-    
-})
+const userSchema = new Schema({
+    email: { type: String, unique: true },
+    password: String,
+    firstname: String,
+    lastname: String
+});
 
-const courseSchema = Schema({
-    
-})
+const adminSchema = new Schema({
+    email: { type: String, unique: true },
+    password: String,
+    firstname: String,
+    lastname: String
+});
 
-const purchaseSchema = Schema({
-    
-})
+const courseSchema = new Schema({
+    title: String,
+    description: String,
+    price: Number,
+    imageurl: String,
+    creatorid: { type: Schema.Types.ObjectId }
+});
 
-const userModel = mongoose.Model("user", userSchema)
-const adminModel = mongoose.Model("admin", userSchema)
-const courseModel = mongoose.Model("course", userSchema)
-const purchaseModel = mongoose.Model("purchase", userSchema)
+const purchaseSchema = new Schema({
+    userId: { type: Schema.Types.ObjectId },
+    courseId: { type: Schema.Types.ObjectId }
+});
+
+const userModel = mongoose.model("User", userSchema);
+const adminModel = mongoose.model("Admin", adminSchema);
+const courseModel = mongoose.model("Course", courseSchema);
+const purchaseModel = mongoose.model("Purchase", purchaseSchema);
+
+module.exports = {
+    userModel,
+    adminModel,
+    courseModel,
+    purchaseModel
+};

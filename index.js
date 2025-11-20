@@ -1,21 +1,14 @@
-const express = require('express')
-const app = express()
-const port = 3000
-const { userRouter } = require("./routes/user")
-const { productRouter } = require("./routes/product")
-const { adminRouter } = require("./routes/admin")
-const { useEffectEvent } = require('react')
+const express = require("express");
+const app = express();
 
-// createUserRoutes(app)
-// createProductRoutes(app)
+const adminRouter = require("./routes/admin");
+const userRouter = require("./routes/user");
+const productRouter = require("./routes/product");
 
-app.use("/user" , userRouter)
-app.use("/product" , productRouter)
-app.use("/admin" , adminRouter)
+app.use("/admin", adminRouter);
+app.use("/user", userRouter);
+app.use("/product", productRouter);
 
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
-
-//comit fixed
+app.listen(3000, () => {
+  console.log("Server running");
+});
