@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const app = express();
 
 const adminRouter = require("./routes/admin");
@@ -9,6 +10,10 @@ app.use("/admin", adminRouter);
 app.use("/user", userRouter);
 app.use("/product", productRouter);
 
-app.listen(3000, () => {
-  console.log("Server running");
-});
+async function main(){
+  await mongoose.connect("mongodb+srv://abhi:kings11punjab@cluster0.uhrq4q3.mongodb.net/coursera-app")
+  app.listen(3000);
+  console.log("Listing on 3000")
+}
+
+main()
