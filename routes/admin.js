@@ -9,7 +9,7 @@ adminRouter.use(adminMiddleware);
 adminRouter.post('/signup', (req, res) => {
     const {email, password, firstName, lastName} = req.body;
 
-    
+
 
     res.json({
         message: "admin signup endpoint"
@@ -37,3 +37,5 @@ adminRouter.put('/course', (req, res) => {
 });
 
 module.exports = adminRouter;
+
+hghf
